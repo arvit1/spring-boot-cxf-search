@@ -2,6 +2,7 @@ package com.massoudafrashteh.code.starter;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 import com.massoudafrashteh.code.controller.PeopleRestService;
+import com.massoudafrashteh.code.controller.PostController;
 import com.massoudafrashteh.code.controller.UserController;
 import com.massoudafrashteh.code.domain.Person;
 import com.massoudafrashteh.code.domain.User;
@@ -34,7 +35,7 @@ public class CxfConfig {
         factory.setProvider(new JacksonJsonProvider());
         factory.setBus(bus);
         factory.setAddress("/");
-        factory.setServiceBeans(Arrays.<Object>asList(userController(),peopleRestService()));
+        factory.setServiceBeans(Arrays.<Object>asList(userController(), peopleRestService(), postController()));
         factory.setFeatures(Arrays.asList(new Swagger2Feature()));
         factory.setProvider( new SearchContextProvider() );
         factory.setProvider( new JacksonJsonProvider() );
@@ -45,6 +46,11 @@ public class CxfConfig {
     @Bean
     public UserController userController() {
         return new UserController();
+    }
+
+    @Bean
+    public PostController postController() {
+        return new PostController();
     }
 
     @Bean

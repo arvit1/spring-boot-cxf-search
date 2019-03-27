@@ -1,13 +1,11 @@
 package com.massoudafrashteh.code.controller;
 
-import com.massoudafrashteh.code.domain.Person;
 import com.massoudafrashteh.code.domain.User;
 import com.massoudafrashteh.code.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.cxf.jaxrs.ext.search.SearchCondition;
 import org.apache.cxf.jaxrs.ext.search.SearchConditionVisitor;
-import org.apache.cxf.jaxrs.ext.search.SearchContext;
 import org.apache.cxf.jaxrs.ext.search.fiql.FiqlParser;
 import org.apache.cxf.jaxrs.ext.search.jpa.JPATypedQueryVisitor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +14,16 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
-import java.awt.print.Book;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
