@@ -56,6 +56,13 @@ public class PostController {
         return postRepository.save(post);
     }
 
+
+    @GET
+    @ApiOperation(value = "Find all users", response = Post[].class)
+    public List<Post> findAll() {
+        return postRepository.findAll();
+    }
+
     @GET
     @Path("/search")
     public Collection< Post > findPeople( @QueryParam("_s") String search ) {

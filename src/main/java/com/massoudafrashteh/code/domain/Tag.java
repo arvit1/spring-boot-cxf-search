@@ -1,9 +1,11 @@
 package com.massoudafrashteh.code.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -23,7 +25,8 @@ public class Tag {
     @NaturalId
     private String name;
 
-    @ManyToMany(mappedBy = "tags")
+    @ManyToMany(mappedBy = "tags", fetch = FetchType.EAGER)
+    @JsonBackReference
     private List<Post> posts = new ArrayList<>();
 
     public Tag() {}
